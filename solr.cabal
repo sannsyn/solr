@@ -2,6 +2,8 @@ name:
   solr
 version:
   0.1
+synopsis:
+  A minimal Solr client library
 homepage:
   https://github.com/nikita-volkov/solr
 bug-reports:
@@ -38,17 +40,34 @@ library
     Haskell2010
   other-modules:
     Solr.Prelude
+    Solr.HTTPResponseDecoder
+    Solr.HTTPRequestEncoder
+    Solr.Parameters
   exposed-modules:
+    Solr.Request
+    Solr.Session
+    Solr.JSONDecoder
+    Solr.JSONEncoder
   build-depends:
     -- networking:
     http-response-decoder >= 0.2 && < 0.3,
+    http-client >= 0.4.27 && < 0.5,
+    http-client-session >= 0.1.1 && < 0.2,
+    uri-encode >= 1.5 && < 2,
     -- json:
-    json-stream >= 0.4.1 && < 0.5,
+    json-encoder >= 0.1.5 && < 0.2,
+    json-incremental-decoder >= 0.1 && < 0.2,
     -- data:
+    bytestring-tree-builder >= 0.2.5 && < 0.3,
     bytestring >= 0.10 && < 0.11,
     text >= 1 && < 2,
+    case-insensitive >= 1.2 && < 2,
     -- general:
     foldl >= 1.1 && < 2,
-    transformers >= 0.3 && < 0.6,
+    matcher >= 0.1.1 && < 0.2,
+    semigroups >= 0.18 && < 0.19,
+    profunctors >= 5.2 && < 6,
+    contravariant >= 1.4 && < 2,
+    transformers >= 0.4 && < 0.6,
     base-prelude < 2
 
