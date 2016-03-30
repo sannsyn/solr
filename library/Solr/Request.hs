@@ -70,7 +70,7 @@ request_select selectEncoder selectDecoder =
       Solr.HTTPRequestEncoder.request_postJSON url jsonEncoder
       where
         url =
-          baseURL <> "select/?wt=json"
+          baseURL <> "/select/?wt=json"
         jsonEncoder =
           encoder_value_select selectEncoder
     responseDecoder =
@@ -97,7 +97,7 @@ request_update updateEncoder =
       Solr.HTTPRequestEncoder.request_postJSON url jsonEncoder
       where
         url =
-          baseURL <> "update/?commit=true"
+          baseURL <> "/update/?commit=true"
         jsonEncoder =
           encoder_value_update updateEncoder
     responseDecoder =
