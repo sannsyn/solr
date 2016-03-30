@@ -15,7 +15,7 @@ encoder_request (Request (Op impl)) input =
   where
     init =
       either (error . show) id $
-      Network.HTTP.Client.parseUrl "www"
+      Network.HTTP.Client.parseUrl "http://www"
 
 
 newtype Request a =
