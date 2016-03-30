@@ -45,6 +45,17 @@ select selectEncoder selectDecoder =
       Solr.Request.Decoder.value_select $
       selectDecoder
 
+count :: Request Text Int
+count =
+  select encoder decoder
+  where
+    encoder =
+      Solr.Request.Encoder.select_query <>
+      contramap (const 0) Solr.Request.Encoder.select_limit
+    decoder =
+      Solr.Request.Decoder.select_response $
+      Solr.Request.Decoder.response_numFound
+
 update :: Solr.Request.Encoder.Update a -> Request a ()
 update updateEncoder =
   Request requestEncoderProducer responseDecoder
