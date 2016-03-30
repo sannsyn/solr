@@ -27,6 +27,7 @@ type Env =
 data Error =
   Error_Decoding !Text |
   Error_Transport !Network.HTTP.Client.HttpException
+  deriving (Show)
 
 run :: Session a -> ByteString -> Network.HTTP.Client.Manager -> IO (Either Error a)
 run (Session impl) baseURL httpManager =
