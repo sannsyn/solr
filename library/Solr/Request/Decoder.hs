@@ -1,4 +1,6 @@
-module Solr.JSONDecoder
+-- |
+-- Request decoder DSL.
+module Solr.Request.Decoder
 (
   value_select,
   Select,

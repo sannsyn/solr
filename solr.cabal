@@ -44,15 +44,14 @@ library
     Solr.HTTPRequestEncoder
     Solr.Parameters
   exposed-modules:
-    Solr.Request
     Solr.Session
-    Solr.JSONDecoder
-    Solr.JSONEncoder
+    Solr.Request
+    Solr.Request.Decoder
+    Solr.Request.Encoder
   build-depends:
     -- networking:
     http-response-decoder >= 0.2 && < 0.3,
     http-client >= 0.4.27 && < 0.5,
-    http-client-session >= 0.1.1 && < 0.2,
     uri-encode >= 1.5 && < 2,
     -- json:
     json-encoder >= 0.1.5 && < 0.2,
@@ -63,7 +62,6 @@ library
     text >= 1 && < 2,
     case-insensitive >= 1.2 && < 2,
     -- general:
-    foldl >= 1.1 && < 2,
     matcher >= 0.1.1 && < 0.2,
     semigroups >= 0.18 && < 0.19,
     profunctors >= 5.2 && < 6,

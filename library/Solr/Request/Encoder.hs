@@ -1,4 +1,6 @@
-module Solr.JSONEncoder
+-- |
+-- Request encoder DSL.
+module Solr.Request.Encoder
 (
   value_select,
   value_update,
