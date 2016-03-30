@@ -5,6 +5,7 @@ module Solr.Request
   -- * Request
   Request(..),
   request_select,
+  request_count,
   request_update,
   -- * Encoders
   Encoder_Select,
@@ -76,6 +77,17 @@ request_select selectEncoder selectDecoder =
       Solr.HTTPResponseDecoder.json $
       decoder_value_select $
       selectDecoder
+
+request_count :: Request Text Int
+request_count =
+  request_select encoder decoder
+  where
+    encoder =
+      encoder_select_query <>
+      contramap (const 0) encoder_select_limit
+    decoder =
+      decoder_select_response $
+      decoder_response_numFound
 
 request_update :: Encoder_Update a -> Request a ()
 request_update updateEncoder =
