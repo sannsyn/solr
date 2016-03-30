@@ -71,6 +71,8 @@ request_url url =
             Network.HTTP.Client.secure parsedRequest,
           Network.HTTP.Client.host =
             Network.HTTP.Client.host parsedRequest,
+          Network.HTTP.Client.port =
+            Network.HTTP.Client.port parsedRequest,
           Network.HTTP.Client.path =
             Network.HTTP.Client.path parsedRequest,
           Network.HTTP.Client.queryString =
