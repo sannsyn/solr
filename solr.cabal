@@ -1,7 +1,7 @@
 name:
   solr
 version:
-  0.1
+  0.2
 synopsis:
   A minimal Solr client library
 homepage:
@@ -46,8 +46,6 @@ library
   exposed-modules:
     Solr.Session
     Solr.Request
-    Solr.Request.Decoder
-    Solr.Request.Encoder
   build-depends:
     -- networking:
     http-response-decoder >= 0.2 && < 0.3,
