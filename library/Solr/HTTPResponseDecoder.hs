@@ -37,7 +37,7 @@ jsonBodyMatcher spec =
 
 json :: JSONIncrementalDecoder.Value a -> Response a
 json spec =
-  response contentTypeIsJSON statusIsOkay (jsonBodyMatcher spec)
+  response whatever statusIsOkay (jsonBodyMatcher spec)
       
 okay :: Response ()
 okay =
