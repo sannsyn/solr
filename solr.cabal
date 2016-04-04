@@ -1,13 +1,13 @@
 name:
   solr
 version:
-  0.2.1.4
+  0.2.1.5
 synopsis:
   A minimal Solr client library
 homepage:
-  https://github.com/nikita-volkov/solr
+  https://github.com/sannsyn/solr
 bug-reports:
-  https://github.com/nikita-volkov/solr/issues
+  https://github.com/sannsyn/solr/issues
 author:
   Nikita Volkov <nikita.y.volkov@mail.ru>
 maintainer:
@@ -28,7 +28,7 @@ source-repository head
   type:
     git
   location:
-    git://github.com/nikita-volkov/solr.git
+    git://github.com/sannsyn/solr.git
 
 
 library
