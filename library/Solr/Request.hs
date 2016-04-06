@@ -10,7 +10,7 @@ module Solr.Request
   -- * Encoders
   Encoder_Select,
   encoder_select_query,
-  encoder_select_filter,
+  encoder_select_fields,
   encoder_select_offset,
   encoder_select_limit,
   Encoder_Update,
@@ -105,7 +105,6 @@ request_update updateEncoder =
 
 
 
-
 encoder_value_select :: Encoder_Select a -> JSONEncoder.Value a
 encoder_value_select (Encoder_Select spec) =
   JSONEncoder.object spec
@@ -115,9 +114,10 @@ encoder_value_update (Encoder_Update spec) =
   JSONEncoder.object spec
 
 
+
 -- q = query
 -- fq = filter
--- fl = JSONEncoder.fields
+-- fl = fields
 -- start = offset
 -- rows = limit
 -- sort = sort
@@ -129,9 +129,13 @@ encoder_select_query :: Encoder_Select Text
 encoder_select_query =
   Encoder_Select (JSONEncoder.field "query" JSONEncoder.string)
 
-encoder_select_filter :: Encoder_Select [Text]
+encoder_select_filter :: Encoder_Select Text
 encoder_select_filter =
-  Encoder_Select (JSONEncoder.field "filter" (JSONEncoder.array (JSONEncoder.homo foldl' JSONEncoder.string)))
+  Encoder_Select (JSONEncoder.field "filter" JSONEncoder.string)
+
+encoder_select_fields :: Encoder_Select [Text]
+encoder_select_fields =
+  Encoder_Select (JSONEncoder.field "fields" (JSONEncoder.array (JSONEncoder.homo foldl' JSONEncoder.string)))
 
 encoder_select_offset :: Encoder_Select Int
 encoder_select_offset =
