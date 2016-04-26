@@ -13,6 +13,7 @@ module Solr.Request
   encoder_select_fields,
   encoder_select_offset,
   encoder_select_limit,
+  encoder_select_filter,
   Encoder_Update,
   encoder_update_add,
   encoder_update_delete,
