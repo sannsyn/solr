@@ -4,5 +4,5 @@ module Solr.Effect
 )
 where
 
-import Solr.Effect.Effect hiding (Effect(Effect), Resource(Resource))
-
+import Solr.Effect.Effect hiding (Effect, Resource)
+import Solr.Effect.Effect (Effect, Resource)
