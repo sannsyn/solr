@@ -46,7 +46,11 @@ library
   exposed-modules:
     Solr.Session
     Solr.Request
+    Solr.Args
   build-depends:
+    -- 
+    optparse-applicative-simple >= 1 && < 1.1,
+    attoparsec-data == 0.1.*,
     -- networking:
     http-response-decoder >= 0.2 && < 0.3,
     http-client >= 0.4.27 && < 0.6,
