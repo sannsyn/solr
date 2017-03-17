@@ -1,7 +1,7 @@
 name:
   solr
 version:
-  0.3.3
+  0.4
 synopsis:
   A minimal Solr client library
 homepage:
@@ -41,17 +41,21 @@ library
     Solr.HTTPResponseDecoder
     Solr.HTTPRequestEncoder
     Solr.Parameters
+    Solr.Session.Session
+    Solr.Managed
   exposed-modules:
     Solr.Session
     Solr.Request
     Solr.Args
   build-depends:
     -- 
+    managed == 1.*,
     optparse-applicative-simple >= 1 && < 1.1,
     attoparsec-data == 0.1.*,
     -- networking:
+    http-client == 0.5.*,
+    http-client-tls == 0.3.*,
     http-response-decoder >= 0.2 && < 0.3,
-    http-client >= 0.4.27 && < 0.6,
     uri-encode >= 1.5 && < 2,
     -- json:
     json-encoder >= 0.1.5 && < 0.2,
