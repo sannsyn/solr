@@ -23,13 +23,11 @@ build-type:
 cabal-version:
   >=1.10
 
-
 source-repository head
   type:
     git
   location:
     git://github.com/sannsyn/solr.git
-
 
 library
   hs-source-dirs:
@@ -71,4 +69,3 @@ library
     transformers >= 0.4 && < 0.6,
     base-prelude < 2,
     base < 5
-
