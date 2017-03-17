@@ -8,7 +8,7 @@ import Solr.Prelude
 import Control.Monad.Managed.Safe
 import qualified Network.HTTP.Client as A
 import qualified Network.HTTP.Client.TLS as B
-import qualified Solr.Session.Session as A
+import qualified Solr.Effect.Effect as A
 
 
 tlsManager :: Managed A.Manager

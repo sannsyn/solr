@@ -13,7 +13,7 @@ import qualified Attoparsec.Data.Explicit as A
 import qualified Data.Text.Encoding as B
 import qualified Control.Monad.Managed.Safe as C
 import qualified Solr.Managed as D
-import qualified Solr.Session.Session as E
+import qualified Solr.Effect.Effect as E
 
 
 baseURL :: Maybe Text -> (Text -> Text) -> Parser ByteString

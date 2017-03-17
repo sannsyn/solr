@@ -1,4 +1,4 @@
-module Solr.Session.Session
+module Solr.Effect.Effect
 where
 
 import Solr.Prelude
@@ -10,8 +10,8 @@ import qualified Solr.HTTPRequestEncoder
 import qualified HTTPResponseDecoder
 
 
-newtype Session a =
-  Session (ReaderT Resource (ExceptT Error IO) a)
+newtype Effect a =
+  Effect (ReaderT Resource (ExceptT Error IO) a)
   deriving (Functor, Applicative, Monad, MonadIO)
 
 data Resource =
@@ -22,13 +22,13 @@ data Error =
   Error_Transport !Network.HTTP.Client.HttpException
   deriving (Show)
 
-run :: Session a -> Resource -> IO (Either Error a)
-run (Session impl) resource =
+run :: Effect a -> Resource -> IO (Either Error a)
+run (Effect impl) resource =
   runExceptT (runReaderT impl resource)
 
-request :: Solr.Request.Request a b -> a -> Session b
+request :: Solr.Request.Request a b -> a -> Effect b
 request (Solr.Request.Request encoderProducer decoder) input =
-  Session $
+  Effect $
   ReaderT $
   \(Resource baseURL httpManager) ->
     ExceptT $

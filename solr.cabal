@@ -41,10 +41,10 @@ library
     Solr.HTTPResponseDecoder
     Solr.HTTPRequestEncoder
     Solr.Parameters
-    Solr.Session.Session
+    Solr.Effect.Effect
     Solr.Managed
   exposed-modules:
-    Solr.Session
+    Solr.Effect
     Solr.Request
     Solr.Args
   build-depends:
