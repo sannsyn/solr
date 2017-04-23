@@ -9,7 +9,7 @@ where
 
 import Solr.Prelude
 import OptparseApplicative.Simple.Parser
-import qualified Attoparsec.Data.Explicit as A
+import qualified Attoparsec.Data as A
 import qualified Data.Text.Encoding as B
 import qualified Control.Monad.Managed.Safe as C
 import qualified Solr.Managed as D
