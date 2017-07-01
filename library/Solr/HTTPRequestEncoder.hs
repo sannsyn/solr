@@ -85,6 +85,20 @@ request_url url =
       Data.ByteString.Char8.unpack $
       url
 
+{-|
+Set the timeout in μs.
+-}
+request_timeout :: Int -> Request a
+request_timeout timeout =
+  Request $
+  Op $
+  const $
+  Endo $
+  \request ->
+    request {
+      Network.HTTP.Client.responseTimeout =
+        Network.HTTP.Client.responseTimeoutMicro timeout
+    }
 
 newtype Body a =
   Body (a -> Network.HTTP.Client.RequestBody)
@@ -117,5 +131,6 @@ request_postJSON url jsonEncoder =
   request_url url <>
   request_method "POST" <>
   request_header "content-type" "application/json" <>
+  request_timeout (30 * (10 ^ 6)) <>
   request_body (body_json jsonEncoder)
 
